@@ -1,0 +1,7 @@
+# Project exclude paths
+/studentmanager-biz/target/
+/studentmanager-common/target/
+/studentmanager-dal/target/
+/studentmanager-manager/target/
+/studentmanager-service/target/
+/studentmanager-service-api/target/
