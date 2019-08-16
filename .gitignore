@@ -1,7 +1,20 @@
-# Project exclude paths
-/studentmanager-biz/target/
-/studentmanager-common/target/
-/studentmanager-dal/target/
-/studentmanager-manager/target/
-/studentmanager-service/target/
-/studentmanager-service-api/target/
+/*/target/*
+*.class
+*.lock
+*.DS_Store
+*.swp
+*.out
+target/
+*.iml
+*.ipr
+*.iws
+*.bak
+.settings/
+.classpath
+.project
+.metadata/
+.idea/
+*.log
+*.lnk
+.eclipse/
+*.versionsBackup
