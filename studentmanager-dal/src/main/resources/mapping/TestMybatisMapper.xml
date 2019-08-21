@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wangbeauty.studentmanager.mapper.TestMybatisMapper">
+
+    <resultMap id="BaseResultMap" type="com.wangbeauty.studentmanager.model.TestMybatis">
+        <result column="TEST_NAME"  jdbcType="VARCHAR"   property="testName"/>
+        <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="CREATED_BY" jdbcType="VARCHAR"   property="createdBy"/>
+        <result column="UPDATED_AT" jdbcType="TIMESTAMP" property="updatedAt"/>
+        <result column="UPDATED_BY" jdbcType="VARCHAR"   property="updatedBy"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        TEST_NAME,
+        CREATED_AT,
+        CREATED_BY,
+        UPDATED_AT,
+        UPDATED_BY
+    </sql>
+
+    <insert id="insertTestName" parameterType="com.wangbeauty.studentmanager.model.TestMybatis">
+        INSERT INTO test_mybatis
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            TEST_NAME,
+            CREATED_AT,
+            UPDATED_AT,
+            CREATED_BY,
+            UPDATED_BY,
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #{testName, jdbcType=VARCHAR},
+            #{createdAt, jdbcType=TIMESTAMP},
+            #{updatedAt, jdbcType=TIMESTAMP},
+            #{createdBy, jdbcType=VARCHAR},
+            #{updatedBy, jdbcType=VARCHAR},
+        </trim>
+    </insert>
+
+
+</mapper>

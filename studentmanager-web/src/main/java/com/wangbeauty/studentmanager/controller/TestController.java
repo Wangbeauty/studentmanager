@@ -1,14 +1,16 @@
 package com.wangbeauty.studentmanager.controller;
 
+import com.wangbeauty.studentmanager.model.request.TestMyBatisReqDTO;
+import com.wangbeauty.studentmanager.service.TestMybatisService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
@@ -20,14 +22,14 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/test")
 public class TestController {
 
-	@Value("jdbc.jdbcUsername")
-	private String jdbcName;
+	@Autowired
+	private TestMybatisService testMybatisService;
 
-	@RequestMapping("/hello")
-	public Object testHello(HttpServletRequest request, HttpServletResponse response) {
-		String name = request.getParameter("name");
-		log.info("name:{}", name);
-		log.info("jdbcName:{}", jdbcName);
-		return new ResponseEntity<String>("你好 " + name, HttpStatus.OK);
+	@RequestMapping(value="/hello", produces = {"application/json; charset=UTF-8"}, method = RequestMethod.GET)
+	public ResponseEntity<Object> testHello(@RequestParam("name") String name) {
+		TestMyBatisReqDTO testMyBatisReqDTO = new TestMyBatisReqDTO();
+		testMyBatisReqDTO.setTestName("小王");
+		testMybatisService.insertTestName(testMyBatisReqDTO);
+		return new ResponseEntity<>(name, HttpStatus.OK);
 	}
 }
