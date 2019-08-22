@@ -24,6 +24,7 @@ public class TestMybatisServiceTest extends BaseSpringBootTest {
 	@Test
 	public void insertTestNameTest() {
 		TestMyBatisReqDTO testMyBatisReqDTO = new TestMyBatisReqDTO();
+		testMyBatisReqDTO.setTraceLogId("66634232323ty");
 		testMyBatisReqDTO.setTestName("小王");
 		testMybatisService.insertTestName(testMyBatisReqDTO);
 	}

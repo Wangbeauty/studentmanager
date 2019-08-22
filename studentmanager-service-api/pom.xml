@@ -10,12 +10,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.sf.oval</groupId>
-            <artifactId>oval</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>studentmanager-common</artifactId>
         </dependency>
     </dependencies>
 </project>

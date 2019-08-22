@@ -4,6 +4,8 @@ import com.wangbeauty.studentmanager.model.base.BaseReqDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.sf.oval.constraint.NotBlank;
+import net.sf.oval.constraint.NotNull;
 
 /**
  * @author wangjunwen
@@ -15,5 +17,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class TestMyBatisReqDTO extends BaseReqDTO {
 
+	@NotNull(message = "名称不能为空")
+	@NotBlank(message = "名称不能为空")
 	private String testName;
 }

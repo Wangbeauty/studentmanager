@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="context_name" value="o2o-agentmanager" />
+
+    <!-- 系统日志打印 -->
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_FILE_NAME}.log</File>
+        <encoder>
+            <pattern>[%date] [%level] %logger{36} [%file:%line]  [%thread] traceLogid:[%X{TRACE_LOG_ID}] dstTraceId:[%X{dstTraceId}] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_NAME}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>512MB</maxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="utf-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
+            <!-- %.-1level 只显示信息级别的首字母,%-5level 左对齐显示信息级别全称 -->
+            <!-- 如需自定义关键字，用 %mdc{键名} 表示,程序中用MDC.put("键名","键值")设置，可动态设置 [%logger:%line]-->
+            <Pattern>
+                [%date{yyyy-MM-dd HH:mm:ss}] [%-5level][%C{40}][%line][%M] --%mdc{client} [%X{TRACE_LOG_ID}] %msg%n
+            </Pattern>
+        </encoder>
+        >
+    </appender>
+
+    <!-- 外部jar包 日志级别设置 -->
+
+    <logger level="INFO" name="com.ibatis"/>
+    <logger level="INFO" name="com.alibaba.dubbo"/>
+    <logger level="INFO" name="com.ibatis.common.jdbc.ScriptRunner"/>
+    <logger level="INFO" name="com.ibatis.common.jdbc.SimpleDataSource"/>
+    <logger level="INFO" name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate"/>
+
+    <logger level="INFO" name="org.dozer"/>
+    <logger level="INFO" name="org.apache"/>
+    <logger level="INFO" name="org.I0Itec"/>
+    <logger level="INFO" name="org.springframework"/>
+
+    <logger level="INFO" name="java.sql"/>
+    <logger level="INFO" name="java.sql.ResultSet"/>
+    <logger level="INFO" name="java.sql.Connection"/>
+    <logger level="INFO" name="java.sql.Statement"/>
+    <logger level="INFO" name="java.sql.PreparedStatement"/>
+
+    <root  level="INFO" name="com.bestpay">
+        <appender-ref ref="logfile" />
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

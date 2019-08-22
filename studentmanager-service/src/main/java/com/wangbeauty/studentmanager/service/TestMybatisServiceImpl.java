@@ -1,7 +1,10 @@
 package com.wangbeauty.studentmanager.service;
 
+import com.wangbeauty.studentmanager.annotation.OperateLogger;
 import com.wangbeauty.studentmanager.biz.TestMybatisBiz;
+import com.wangbeauty.studentmanager.exception.BusinessException;
 import com.wangbeauty.studentmanager.model.request.TestMyBatisReqDTO;
+import com.wangbeauty.studentmanager.util.VerifyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +28,18 @@ public class TestMybatisServiceImpl implements TestMybatisService {
 	 * @return 操作行数
 	 */
 	@Override
+	@OperateLogger(desc = "新增测试", operationType = OperateLogger.OperationType.C)
 	public int insertTestName(TestMyBatisReqDTO testMyBatisReqDTO) {
-		return testMybatisBiz.insertTestName(testMyBatisReqDTO);
+		log.info("新增测试开始，请求参数：{}", testMyBatisReqDTO);
+		int i;
+		try {
+			VerifyUtil.validateObject(testMyBatisReqDTO);
+			i = testMybatisBiz.insertTestName(testMyBatisReqDTO);
+		} catch (BusinessException e) {
+			log.info("新增测试异常，异常信息：{}", e);
+			i = 0;
+		}
+		log.info("新增测试结束，返回参数：{}", i);
+		return i;
 	}
 }
