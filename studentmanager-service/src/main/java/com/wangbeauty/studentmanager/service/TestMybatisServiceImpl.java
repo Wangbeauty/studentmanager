@@ -31,13 +31,12 @@ public class TestMybatisServiceImpl implements TestMybatisService {
 	@OperateLogger(desc = "新增测试", operationType = OperateLogger.OperationType.C)
 	public int insertTestName(TestMyBatisReqDTO testMyBatisReqDTO) {
 		log.info("新增测试开始，请求参数：{}", testMyBatisReqDTO);
-		int i;
+		int i = 0;
 		try {
 			VerifyUtil.validateObject(testMyBatisReqDTO);
 			i = testMybatisBiz.insertTestName(testMyBatisReqDTO);
 		} catch (BusinessException e) {
 			log.info("新增测试异常，异常信息：{}", e);
-			i = 0;
 		}
 		log.info("新增测试结束，返回参数：{}", i);
 		return i;

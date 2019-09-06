@@ -4,7 +4,6 @@ import com.wangbeauty.studentmanager.model.request.TestMyBatisReqDTO;
 import com.wangbeauty.studentmanager.service.TestMybatisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,9 @@ public class TestController {
 
 	@RequestMapping(value="/hello", produces = {"application/json; charset=UTF-8"}, method = RequestMethod.GET)
 	public ResponseEntity<Object> testHello(@RequestParam("name") String name) {
+		log.info("---------name:{}", name);
 		TestMyBatisReqDTO testMyBatisReqDTO = new TestMyBatisReqDTO();
+		testMyBatisReqDTO.setTraceLogId("123456789");
 		testMyBatisReqDTO.setTestName("小王");
 		testMybatisService.insertTestName(testMyBatisReqDTO);
 		return new ResponseEntity<>(name, HttpStatus.OK);

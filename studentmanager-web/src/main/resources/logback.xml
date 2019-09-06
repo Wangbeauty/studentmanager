@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="context_name" value="o2o-agentmanager" />
+    <property name="context_name" value="studentmanager" />
 
     <!-- 系统日志打印 -->
     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -49,7 +49,7 @@
     <logger level="INFO" name="java.sql.Statement"/>
     <logger level="INFO" name="java.sql.PreparedStatement"/>
 
-    <root  level="INFO" name="com.bestpay">
+    <root  level="INFO" name="com.wangbeauty.studentmanager">
         <appender-ref ref="logfile" />
         <appender-ref ref="STDOUT"/>
     </root>

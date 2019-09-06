@@ -2,7 +2,6 @@ package com.wangbeauty.studentmanager.util;
 
 import com.wangbeauty.studentmanager.exception.BusinessException;
 import com.wangbeauty.studentmanager.exception.ErrorCodeEnum;
-import lombok.extern.slf4j.Slf4j;
 import net.sf.oval.ConstraintViolation;
 import net.sf.oval.Validator;
 import net.sf.oval.expression.ExpressionLanguageGroovyImpl;
@@ -14,7 +13,7 @@ import java.util.List;
  * @author wangjunwen
  * @version Id: VerifyUtil.java, v 1.0 2019/8/19 wangjunwen Exp $$
  */
-@Slf4j
+
 public class VerifyUtil {
 
     private static Validator validator = new Validator();

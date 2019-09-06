@@ -1,0 +1,31 @@
+LOG_FILE_NAME=${LOG_FILE_NAME}
+
+# 数据源配置
+spring.datasource.url=${spring.datasource.url}
+spring.datasource.username=${spring.datasource.username}
+spring.datasource.password=${spring.datasource.password}
+spring.datasource.driverClassName=${spring.datasource.driverClassName}
+##druid连接池配置
+spring.datasource.type=${spring.datasource.type}
+# 初始化大小，最小，最大
+spring.datasource.initialSize=${spring.datasource.initialSize}
+spring.datasource.minIdle=${spring.datasource.minIdle}
+spring.datasource.maxActive=${spring.datasource.maxActive}
+# 配置获取连接等待超时的时间
+spring.datasource.maxWait=${spring.datasource.maxWait}
+# 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+spring.datasource.timeBetweenEvictionRunsMillis=${spring.datasource.timeBetweenEvictionRunsMillis}
+# 配置一个连接在池中最小生存的时间，单位是毫秒
+spring.datasource.minEvictableIdleTimeMillis=${spring.datasource.minEvictableIdleTimeMillis}
+spring.datasource.validationQuery=${spring.datasource.validationQuery}
+spring.datasource.testWhileIdle=${spring.datasource.testWhileIdle}
+spring.datasource.testOnBorrow=${spring.datasource.testOnBorrow}
+spring.datasource.testOnReturn=${spring.datasource.testOnReturn}
+# 打开PSCache，并且指定每个连接上PSCache的大小
+spring.datasource.poolPreparedStatements=${spring.datasource.poolPreparedStatements}
+spring.datasource.maxOpenPreparedStatements=${spring.datasource.maxOpenPreparedStatements}
+spring.datasource.maxPoolPreparedStatementPerConnectionSize=${spring.datasource.maxPoolPreparedStatementPerConnectionSize}
+
+# mybatis配置
+mybatis.mapperLocations=${mybatis.mapperLocations}
+mybatis.typeAliasesPackage=${mybatis.typeAliasesPackage}

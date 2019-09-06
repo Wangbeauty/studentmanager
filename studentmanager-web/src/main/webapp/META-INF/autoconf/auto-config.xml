@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="database">
+        <property name="spring.datasource.url"      defaultValue="jdbc:mysql://localhost:3306/yoga?characterEncoding=UTF-8&amp;allowMultiQueries=true"/>
+        <property name="spring.datasource.username" defaultValue="root"/>
+        <property name="spring.datasource.password" defaultValue="root"/>
+        <property name="spring.datasource.driverClassName"    defaultValue="com.mysql.jdbc.Driver" />
+    </group>
+    <group name="jdbc">
+        <property name="spring.datasource.type"        defaultValue="com.alibaba.druid.pool.DruidDataSource" />
+        <property name="spring.datasource.initialSize" defaultValue="10" />
+        <property name="spring.datasource.minIdle"     defaultValue="1" />
+        <property name="spring.datasource.maxActive"   defaultValue="20" />
+        <property name="spring.datasource.maxWait"     defaultValue="2000" />
+        <property name="spring.datasource.timeBetweenEvictionRunsMillis" defaultValue="60000" />
+        <property name="spring.datasource.minEvictableIdleTimeMillis"    defaultValue="30000" />
+        <property name="spring.datasource.validationQuery" defaultValue="select 'x' FROM DUAL" />
+        <property name="spring.datasource.testWhileIdle"   defaultValue="true" />
+        <property name="spring.datasource.testOnBorrow"    defaultValue="false" />
+        <property name="spring.datasource.testOnReturn"    defaultValue="false" />
+        <property name="spring.datasource.poolPreparedStatements"    defaultValue="true" />
+        <property name="spring.datasource.maxOpenPreparedStatements" defaultValue="20" />
+        <property name="spring.datasource.maxPoolPreparedStatementPerConnectionSize" defaultValue="20" />
+    </group>
+    <group name="logger">
+        <property name="LOG_FILE_NAME"     defaultValue="/logs/"   description="日志目录"/>
+    </group>
+    <group name="mybatis">
+        <property name="mybatis.mapperLocations" defaultValue="classpath:mapping/*Mapper.xml" />
+        <property name="mybatis.typeAliasesPackage" defaultValue="classpath:com.wangbeauty.studentmanager.model" />
+    </group>
+
+    <!-- AutoConfig替换模版配置 -->
+    <script>
+        <generate template="application.properties.vm" destfile="/WEB-INF/classes/application.properties" charset="UTF-8"/>
+    </script>
+</config>
+

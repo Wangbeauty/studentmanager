@@ -4,8 +4,6 @@ import com.wangbeauty.studentmanager.BaseSpringBootTest;
 import com.wangbeauty.studentmanager.model.request.TestMyBatisReqDTO;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.context.ApplicationContext;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -26,6 +24,7 @@ public class TestMybatisServiceTest extends BaseSpringBootTest {
 		TestMyBatisReqDTO testMyBatisReqDTO = new TestMyBatisReqDTO();
 		testMyBatisReqDTO.setTraceLogId("66634232323ty");
 		testMyBatisReqDTO.setTestName("小王");
+//		testMyBatisReqDTO.setRecommendNo("123");
 		testMybatisService.insertTestName(testMyBatisReqDTO);
 	}
 
